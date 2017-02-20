@@ -1,5 +1,5 @@
 /**
- * A super simple web server.
+ * An ignorant web server, not looking at the request and just talking back plain text and no HTTP.
  */
 package tinyserver
 
@@ -7,7 +7,7 @@ import java.net._
 import java.io._
 import scala.io._
 
-object Hello {
+object Ignorant {
 
   def main(args: Array[String]) {
 
@@ -19,13 +19,9 @@ object Hello {
       val in = new BufferedSource(s.getInputStream()).getLines()
       val out = new PrintStream(s.getOutputStream())
 
-      out.println("Hello from server, you wrote:")
-      for (n <- in) {
-        println(n)
-        out.println(n)
-      }
+      out.println("Hello from the ignorant server, you wrote:")
+      out.println(in.next())
       out.flush()
-      println("Close connection.");
       s.close()
     }
   }
