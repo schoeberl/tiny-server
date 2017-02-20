@@ -11,11 +11,11 @@ object Ignorant {
 
   def main(args: Array[String]) {
 
-    println("Hello I am a simple server!")
+    println("Hello I am a simple and ignorant server!")
     val server = new ServerSocket(8080)
     while (true) {
       val s = server.accept()
-      println("Accept")
+      println("Accept connection")
       val in = new BufferedSource(s.getInputStream()).getLines()
       val out = new PrintStream(s.getOutputStream())
 
